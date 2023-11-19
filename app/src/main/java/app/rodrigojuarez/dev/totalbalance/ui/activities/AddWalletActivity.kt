@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.totalbalance
+package app.rodrigojuarez.dev.totalbalance.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import app.rodrigojuarez.dev.totalbalance.R
 import app.rodrigojuarez.dev.totalbalance.models.Wallet
 import app.rodrigojuarez.dev.totalbalance.storage.WalletStorage
 
@@ -30,11 +31,8 @@ class AddWalletActivity : AppCompatActivity() {
             val amount = editTextAmount.text.toString()
             val currency = spinnerCurrency.selectedItem.toString()
 
-            if (name.isNotBlank() && amount.isNotBlank() && currency.isNotBlank() && currency != getString(
-                    R.string.currency_hint
-                )
-            ) {
-                val newWallet = Wallet(name, currency, amount)
+            if (name.isNotBlank() && amount.isNotBlank() && currency.isNotBlank() && currency != getString(R.string.currency_hint)) {
+                val newWallet = Wallet(name = name, currency = currency, amount = amount)
                 val currentWallets = walletStorage.getWallets().toMutableList()
                 currentWallets.add(newWallet)
                 walletStorage.saveWallets(currentWallets)
@@ -44,7 +42,7 @@ class AddWalletActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                // TODO Manejar campos vacíos o selección inválida
+                // TODO: Manejar campos vacíos o selección inválida
             }
         }
 

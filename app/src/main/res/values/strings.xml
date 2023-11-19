@@ -14,5 +14,17 @@
     <string name="save">Guardar</string>
     <string name="dashboard_title">Saldo total</string>
     <string name="logout">Logout</string>
-
+    <string name="edit">Editar</string>
+    <string name="delete">Borrar</string>
+    <string name="more_options">Más opciones</string>
+    <string name="confirm_delete">Eliminar wallet</string>
+    <string name="are_you_sure_delete_wallet">¿Deseás eliminar la wallet?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="wallet_deleted">Wallet eliminada</string>
+    <string name="no_wallets_message">Aún no agregaste ninguna billetera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wallet_updated">Wallet actualizada</string>
+    <string name="complete_all_fields">Por favor completa todos los campos</string>
+    <string name="saving_changes">Guardando cambios</string>
 </resources>

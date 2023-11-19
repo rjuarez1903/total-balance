@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.totalbalance
+package app.rodrigojuarez.dev.totalbalance.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +34,5 @@ class HomeActivity : AppCompatActivity() {
         if (intent.getBooleanExtra("open_wallets_tab", false)) {
             viewPager.currentItem = 1
         }
-
     }
 }

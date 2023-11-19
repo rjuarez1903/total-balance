@@ -20,6 +20,11 @@ class WalletStorage(private val context: Context) {
         editor.apply()
     }
 
+    fun updateWallet(updatedWallet: Wallet) {
+        val wallets = getWallets().map { if (it.id == updatedWallet.id) updatedWallet else it }
+        saveWallets(wallets)
+    }
+
     fun getWallets(): List<Wallet> {
         val json = sharedPreferences.getString("wallets", null)
         if (json != null) {
@@ -34,18 +39,21 @@ class WalletStorage(private val context: Context) {
         }
     }
 
-    private fun walletToJson(wallet: Wallet): JSONObject {
+    fun walletToJson(wallet: Wallet): JSONObject {
         val jsonObject = JSONObject()
+        jsonObject.put("id", wallet.id)
         jsonObject.put("name", wallet.name)
         jsonObject.put("currency", wallet.currency)
         jsonObject.put("amount", wallet.amount)
         return jsonObject
     }
 
-    private fun jsonToWallet(jsonObject: JSONObject): Wallet {
+    fun jsonToWallet(jsonObject: JSONObject): Wallet {
+        val id = jsonObject.getString("id")
         val name = jsonObject.getString("name")
         val currency = jsonObject.getString("currency")
         val amount = jsonObject.getString("amount")
-        return Wallet(name, currency, amount)
+        return Wallet(id, name, currency, amount)
     }
+
 }

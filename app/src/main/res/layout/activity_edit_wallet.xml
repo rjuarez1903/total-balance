@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_edit_wallet.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.activities.AddWalletActivity">
+    tools:context=".ui.activities.EditWalletActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutWalletName"
+        android:id="@+id/textInputLayoutEditWalletName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -19,13 +19,13 @@
         android:hint="@string/wallet_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextWalletName"
+            android:id="@+id/editTextEditWalletName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutAmount"
+        android:id="@+id/textInputLayoutEditAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -33,21 +33,20 @@
         android:hint="@string/amount">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextAmount"
+            android:id="@+id/editTextEditAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <Spinner
-        android:id="@+id/spinnerCurrency"
+        android:id="@+id/spinnerEditCurrency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp" />
 
     <Button
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"

@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import app.rodrigojuarez.dev.totalbalance.R
-import app.rodrigojuarez.dev.totalbalance.LoginActivity
+import app.rodrigojuarez.dev.totalbalance.ui.activities.LoginActivity
 import app.rodrigojuarez.dev.totalbalance.storage.Authenticator
 
 class DashboardFragment : Fragment() {

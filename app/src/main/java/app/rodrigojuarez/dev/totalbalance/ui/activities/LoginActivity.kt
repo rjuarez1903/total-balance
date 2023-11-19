@@ -1,4 +1,4 @@
-package app.rodrigojuarez.dev.totalbalance
+package app.rodrigojuarez.dev.totalbalance.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import app.rodrigojuarez.dev.totalbalance.R
 import app.rodrigojuarez.dev.totalbalance.storage.Authenticator
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.snackbar.Snackbar
