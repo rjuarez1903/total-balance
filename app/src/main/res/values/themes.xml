@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TotalBalance" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores primarios y secundarios -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/secondaryColor</item>
+        <item name="colorOnPrimary">@color/backgroundColor</item>
+
+        <!-- Color de acento -->
+        <item name="colorSecondary">@color/accentColor</item>
+        <item name="colorSecondaryVariant">@color/accentColor</item>
+        <item name="colorOnSecondary">@color/textPrimaryColor</item>
+
+        <!-- Colores de fondo y texto -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:textColor">@color/textPrimaryColor</item>
+    </style>
+
+    <!-- Estilo para la Toolbar -->
+    <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="titleTextColor">@color/toolbarTextColor</item>
+        <item name="android:textColorSecondary">@color/toolbarTextColor</item>
+        <!-- ... -->
+    </style>
+
+    <style name="Theme.TotalBalance" parent="Base.Theme.TotalBalance">
+        <item name="toolbarStyle">@style/MyToolbarStyle</item>
+    </style>
+</resources>

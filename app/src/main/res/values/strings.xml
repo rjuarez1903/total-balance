@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Total Balance</string>
+    <string name="password">Contraseña</string>
+    <string name="username">Usuario</string>
+    <string name="btn_login">Login</string>
+    <string name="total_balance_logo">Total Balance logo</string>
+    <string name="text_label_1">Dashboard</string>
+    <string name="text_label_2">Wallets</string>
+    <string name="text_label_3">Info</string>
+    <string name="add_wallet">Agregar wallet</string>
+    <string name="amount">Monto</string>
+    <string name="wallet_name">Nombre de la wallet</string>
+    <string name="currency_hint">Selecciona una moneda</string>
+    <string name="save">Guardar</string>
+    <string name="dashboard_title">Saldo total</string>
+    <string name="logout">Logout</string>
+
+</resources>

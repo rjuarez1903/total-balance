@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".ui.fragments.DashboardFragment">
+
+    <!-- Título del Dashboard -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dashboard_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Cantidad Total en Wallets -->
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="@color/accentColor"/>
+
+    <!-- Descripción o indicaciones adicionales -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/total_amount_description"-->
+<!--        android:textSize="18sp"-->
+<!--        android:layout_marginTop="8dp"/>-->
+
+    <!-- Aquí puedes añadir más elementos según sea necesario -->
+
+</LinearLayout>
