@@ -4,37 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardBackgroundColor="@color/secondaryColor"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:padding="16dp">
 
         <!-- Nombre de la Wallet -->
         <TextView
             android:id="@+id/tvWalletName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:text="Nombre Wallet"
+            android:textColor="@color/primaryColor"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/textPrimaryColor"
-            android:layout_marginEnd="8dp"/>
+            android:textStyle="bold" />
 
         <!-- Moneda -->
         <TextView
             android:id="@+id/tvWalletCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="Moneda"
-            android:textSize="16sp"
             android:textColor="@color/textSecondaryColor"
-            android:layout_marginEnd="8dp"/> <!-- Añadido margen a la derecha -->
+            android:textSize="16sp" /> <!-- Añadido margen a la derecha -->
 
         <!-- Saldo -->
         <TextView
@@ -42,16 +44,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monto"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/accentColor"/>
+            android:textColor="@color/primaryColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/menuOptionsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_more_vert_24"
-            android:contentDescription="@string/more_options" />
+            android:contentDescription="@string/more_options"
+            android:src="@drawable/baseline_more_vert_24" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

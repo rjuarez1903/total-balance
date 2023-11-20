@@ -70,9 +70,6 @@ class AddWalletActivity : AppCompatActivity() {
                 // TODO Otra lógica si se necesita
             }
         }
-
-        // TODO Configuración de otros componentes de la UI
-        // ...
     }
 }
 

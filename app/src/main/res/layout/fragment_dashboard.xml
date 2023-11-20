@@ -12,24 +12,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/dashboard_title"
         android:textSize="24sp"
         android:textStyle="bold" />
-
-    <!-- Fecha de Última Actualización -->
-    <TextView
-        android:id="@+id/tvLastUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp" />
-
-<!--    <com.google.android.material.progressindicator.CircularProgressIndicator-->
-<!--        android:id="@+id/dashboardCircularProgressIndicator"-->
-<!--        android:layout_width="48dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!-- />-->
 
     <!-- Cantidad Total en Wallets -->
     <TextView
@@ -38,20 +24,17 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/total_format"
-        android:textColor="@color/accentColor"
+        android:textColor="@color/primaryColor"
         android:textSize="48sp"
         android:textStyle="bold"
-        android:visibility="invisible"
-        />
+        android:visibility="invisible" />
 
-    <!-- Descripción o indicaciones adicionales -->
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/total_amount_description"-->
-    <!--        android:textSize="18sp"-->
-    <!--        android:layout_marginTop="8dp"/>-->
-
-    <!-- Aquí puedes añadir más elementos según sea necesario -->
+    <!-- Fecha de Última Actualización -->
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textSecondaryColor"
+        android:textSize="16sp" />
 
 </LinearLayout>

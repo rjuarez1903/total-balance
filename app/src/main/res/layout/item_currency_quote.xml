@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardBackgroundColor="@color/secondaryColor"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="0dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/primaryColor"
             android:text="Nombre Moneda"
             android:layout_marginBottom="8dp"/>
 
@@ -36,7 +39,8 @@
                 android:id="@+id/tvValueInARS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textColor="@color/textSecondaryColor"
                 android:text="Valor en ARS"
                 android:layout_marginEnd="16dp"/>
 
@@ -45,7 +49,8 @@
                 android:id="@+id/tvValueInUSD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textColor="@color/textSecondaryColor"
                 android:text="Valor en USD"/>
         </LinearLayout>
     </LinearLayout>

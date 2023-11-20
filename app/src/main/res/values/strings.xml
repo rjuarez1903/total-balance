@@ -21,7 +21,7 @@
     <string name="are_you_sure_delete_wallet">¿Deseás eliminar la wallet?</string>
     <string name="cancel">Cancelar</string>
     <string name="wallet_deleted">Wallet eliminada</string>
-    <string name="no_wallets_message">Aún no agregaste ninguna billetera</string>
+    <string name="no_wallets_message">Aún no agregaste ninguna wallet</string>
     <string name="wallet_updated">Wallet actualizada</string>
     <string name="complete_all_fields">Por favor completa todos los campos</string>
     <string name="saving_changes">Guardando cambios</string>

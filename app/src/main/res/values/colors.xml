@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#34568B</color>
-    <color name="secondaryColor">#7393B3</color>
-    <color name="accentColor">#50C878</color>
-    <color name="backgroundColor">#F4F4F4</color>
+    <color name="primaryColor">#604AD9</color>
+    <color name="secondaryColor">#ECEBF7</color>
+    <color name="accentColor">#468BF6</color>
+    <color name="backgroundColor">#FCFCFC</color>
     <color name="textPrimaryColor">#000000</color>
     <color name="textSecondaryColor">#424242</color>
     <color name="toolbarTextColor">#FFFFFF</color>
