@@ -47,7 +47,7 @@ class AddWalletActivity : AppCompatActivity() {
         }
 
         val currencyList =
-            listOf(getString(R.string.currency_hint), "USD", "EUR", "BTC") // Añade tus monedas aquí
+            listOf(getString(R.string.currency_hint), "ARS", "USD", "BTC") // Añade tus monedas aquí
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, currencyList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCurrency.adapter = adapter

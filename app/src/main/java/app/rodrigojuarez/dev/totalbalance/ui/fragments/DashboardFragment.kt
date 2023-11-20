@@ -10,23 +10,94 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import app.rodrigojuarez.dev.totalbalance.R
 import app.rodrigojuarez.dev.totalbalance.ui.activities.LoginActivity
 import app.rodrigojuarez.dev.totalbalance.storage.Authenticator
+import app.rodrigojuarez.dev.totalbalance.storage.WalletStorage
+import app.rodrigojuarez.dev.totalbalance.utils.CurrencyApiUtil
+import com.google.android.material.progressindicator.CircularProgressIndicator
+import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class DashboardFragment : Fragment() {
 
     private lateinit var authenticator: Authenticator
+    private lateinit var walletStorage: WalletStorage
+    private lateinit var totalTextView: TextView
+    private lateinit var lastUpdateTextView: TextView
+//    private lateinit var dashboardCircularProgressIndicator: CircularProgressIndicator
+    private val currencyApiUtil = CurrencyApiUtil()
+
+    private fun loadCurrencyData() {
+//        dashboardCircularProgressIndicator.visibility = View.VISIBLE // Mostrar el indicador
+        currencyApiUtil.fetchCurrencyRates("https://api.bluelytics.com.ar/v2/latest") { jsonResponse ->
+            activity?.runOnUiThread {
+                currencyApiUtil.fetchCurrencyRates("https://cex.io/api/tickers/BTC/USD") { cryptoResponse ->
+                    activity?.runOnUiThread {
+//                        dashboardCircularProgressIndicator.visibility = View.GONE // Ocultar el indicador
+                        calculateTotal(jsonResponse, cryptoResponse)
+                        updateLastUpdateTime() // Actualizar la fecha después de cargar los datos
+                    }
+                }
+            }
+        }
+    }
+
+    private fun calculateTotal(jsonResponse: JSONObject?, cryptoResponse: JSONObject?) {
+        var totalInArs = 0.00
+        val oficialRate = jsonResponse?.getJSONObject("oficial")?.getDouble("value_avg") ?: 0.00
+
+        // Extrayendo la tasa de cambio para BTC
+        val btcRate = cryptoResponse?.getJSONArray("data")?.let { data ->
+            (0 until data.length()).asSequence().map { data.getJSONObject(it) }
+                .find { it.getString("pair") == "BTC:USD" }?.getDouble("last") ?: 0.00
+        } ?: 0.0
+
+        val wallets = walletStorage.getWallets()
+        wallets.forEach { wallet ->
+            val amountInOriginalCurrency = wallet.amount.toDoubleOrNull() ?: 0.00
+            val amountInArs = when (wallet.currency) {
+                "USD" -> amountInOriginalCurrency * oficialRate
+                "BTC" -> amountInOriginalCurrency * btcRate * oficialRate // Convertir primero a USD y luego a ARS
+                else -> amountInOriginalCurrency
+            }
+            totalInArs += amountInArs
+        }
+
+        // Establecer el valor del TextView y hacerlo visible
+        totalTextView.visibility = View.VISIBLE
+        totalTextView.text = getString(R.string.total_format, totalInArs)
+    }
+
+
+    private fun updateLastUpdateTime() {
+        val currentTime = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(Date())
+        lastUpdateTextView.text = getString(R.string.last_update_format, currentTime)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         authenticator = Authenticator(requireActivity())
+        walletStorage = WalletStorage(requireContext())
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        totalTextView = view.findViewById(R.id.tvTotalAmount)
+        lastUpdateTextView = view.findViewById(R.id.tvLastUpdate)
+//        dashboardCircularProgressIndicator = view.findViewById(R.id.dashboardCircularProgressIndicator)
+        return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadCurrencyData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -62,5 +133,5 @@ class DashboardFragment : Fragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 }
+

@@ -13,12 +13,9 @@
         android:gravity="center"
         android:textColor="@color/textSecondaryColor"
         android:visibility="gone"
-        android:layout_marginTop="32dp"
         android:textSize="20sp"
-        android:padding="24dp"
-        android:drawablePadding="10dp"/>
-
-
+        android:padding="16dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWallets"

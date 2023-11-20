@@ -52,7 +52,6 @@ class WalletAdapter(private var wallets: List<Wallet>,
             }
             popupMenu.show()
         }
-
     }
 
     override fun getItemCount() = wallets.size

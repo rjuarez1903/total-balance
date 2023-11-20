@@ -22,9 +22,9 @@
     <string name="cancel">Cancelar</string>
     <string name="wallet_deleted">Wallet eliminada</string>
     <string name="no_wallets_message">Aún no agregaste ninguna billetera</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wallet_updated">Wallet actualizada</string>
     <string name="complete_all_fields">Por favor completa todos los campos</string>
     <string name="saving_changes">Guardando cambios</string>
+    <string name="total_format">ARS %1$.2f</string>
+    <string name="last_update_format">Última actualización: %s</string>
 </resources>
