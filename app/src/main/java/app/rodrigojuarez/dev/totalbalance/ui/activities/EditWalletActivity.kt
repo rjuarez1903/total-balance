@@ -29,8 +29,7 @@ class EditWalletActivity : AppCompatActivity() {
         editTextAmount = findViewById(R.id.editTextEditAmount)
         spinnerCurrency = findViewById(R.id.spinnerEditCurrency)
 
-        // Configurar el adaptador del Spinner con la lista de monedas
-        val currencyList = listOf("ARS", "USD", "BTC") // Añade tus monedas aquí
+        val currencyList = listOf("ARS", "USD", "BTC")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, currencyList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCurrency.adapter = adapter

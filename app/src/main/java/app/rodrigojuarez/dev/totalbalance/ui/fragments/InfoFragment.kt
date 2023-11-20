@@ -42,7 +42,6 @@ class InfoFragment : Fragment() {
     private fun processCurrencyData(jsonResponse: JSONObject?) {
         val quotes = mutableListOf<CurrencyQuote>()
 
-        // Parsear las cotizaciones del dólar
         jsonResponse?.let { json ->
             val oficialRate = json.getJSONObject("oficial")
             val blueRate = json.getJSONObject("blue")
@@ -62,7 +61,6 @@ class InfoFragment : Fragment() {
                 )
             )
 
-            // Llamada a otra API para obtener cotización de criptomonedas (Ejemplo: Bitcoin)
             currencyApiUtil.fetchCurrencyRates("https://cex.io/api/tickers/BTC/USD") { cryptoResponse ->
                 activity?.runOnUiThread {
                     cryptoResponse?.let { cryptoJson ->
@@ -71,7 +69,6 @@ class InfoFragment : Fragment() {
                             val crypto = data.getJSONObject(i)
                             if (crypto.getString("pair") == "BTC:USD") {
                                 val lastPrice = crypto.getDouble("last")
-                                // Supongamos que 1 Bitcoin = lastPrice USD y lo convertimos a ARS usando el dólar oficial (simplificación)
                                 val lastPriceInArs = lastPrice * oficialRate.getDouble("value_avg")
                                 quotes.add(CurrencyQuote("Bitcoin", lastPriceInArs, lastPrice))
                                 break
@@ -79,7 +76,6 @@ class InfoFragment : Fragment() {
                         }
                     }
 
-                    // Actualizar el RecyclerView
                     recyclerView.adapter = CurrencyQuoteAdapter(quotes)
                 }
             }

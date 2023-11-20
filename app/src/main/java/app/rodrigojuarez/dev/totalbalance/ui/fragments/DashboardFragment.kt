@@ -30,18 +30,15 @@ class DashboardFragment : Fragment() {
     private lateinit var walletStorage: WalletStorage
     private lateinit var totalTextView: TextView
     private lateinit var lastUpdateTextView: TextView
-//    private lateinit var dashboardCircularProgressIndicator: CircularProgressIndicator
     private val currencyApiUtil = CurrencyApiUtil()
 
     private fun loadCurrencyData() {
-//        dashboardCircularProgressIndicator.visibility = View.VISIBLE // Mostrar el indicador
         currencyApiUtil.fetchCurrencyRates("https://api.bluelytics.com.ar/v2/latest") { jsonResponse ->
             activity?.runOnUiThread {
                 currencyApiUtil.fetchCurrencyRates("https://cex.io/api/tickers/BTC/USD") { cryptoResponse ->
                     activity?.runOnUiThread {
-//                        dashboardCircularProgressIndicator.visibility = View.GONE // Ocultar el indicador
                         calculateTotal(jsonResponse, cryptoResponse)
-                        updateLastUpdateTime() // Actualizar la fecha después de cargar los datos
+                        updateLastUpdateTime()
                     }
                 }
             }
@@ -52,7 +49,6 @@ class DashboardFragment : Fragment() {
         var totalInArs = 0.00
         val oficialRate = jsonResponse?.getJSONObject("oficial")?.getDouble("value_avg") ?: 0.00
 
-        // Extrayendo la tasa de cambio para BTC
         val btcRate = cryptoResponse?.getJSONArray("data")?.let { data ->
             (0 until data.length()).asSequence().map { data.getJSONObject(it) }
                 .find { it.getString("pair") == "BTC:USD" }?.getDouble("last") ?: 0.00
@@ -63,13 +59,11 @@ class DashboardFragment : Fragment() {
             val amountInOriginalCurrency = wallet.amount.toDoubleOrNull() ?: 0.00
             val amountInArs = when (wallet.currency) {
                 "USD" -> amountInOriginalCurrency * oficialRate
-                "BTC" -> amountInOriginalCurrency * btcRate * oficialRate // Convertir primero a USD y luego a ARS
+                "BTC" -> amountInOriginalCurrency * btcRate * oficialRate
                 else -> amountInOriginalCurrency
             }
             totalInArs += amountInArs
         }
-
-        // Establecer el valor del TextView y hacerlo visible
         totalTextView.visibility = View.VISIBLE
         totalTextView.text = getString(R.string.total_format, totalInArs)
     }
@@ -91,7 +85,6 @@ class DashboardFragment : Fragment() {
 
         totalTextView = view.findViewById(R.id.tvTotalAmount)
         lastUpdateTextView = view.findViewById(R.id.tvLastUpdate)
-//        dashboardCircularProgressIndicator = view.findViewById(R.id.dashboardCircularProgressIndicator)
         return view
     }
 
