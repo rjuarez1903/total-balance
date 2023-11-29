@@ -49,11 +49,9 @@ class WalletsFragment : Fragment() {
     }
 
     private fun deleteWallet(wallet: Wallet) {
-        // Aquí va tu lógica para eliminar la wallet de SharedPreferences
         val wallets = walletStorage.getWallets().filter { it != wallet }
         walletStorage.saveWallets(wallets)
 
-        // Actualizar el RecyclerView
         val recyclerView: RecyclerView = view?.findViewById(R.id.rvWallets) ?: return
         Snackbar.make(recyclerView, getString(R.string.wallet_deleted), Snackbar.LENGTH_SHORT).show()
         loadWallets()
